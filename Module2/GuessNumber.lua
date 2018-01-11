@@ -14,8 +14,10 @@ while answer ~= number do
 	elseif answer > number then
 		print("Too high");
 	else
-		print("You got it!");
+		break;
 	end
+
+	print "Guess again";
 end
 
-print(number);
+print("You got it!");
