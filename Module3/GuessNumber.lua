@@ -5,22 +5,29 @@ function getRandomNumber(maxValue)
 	return math.random(maxValue);
 end
 
+function handleGuesses(...)
+	lowMessage, highMessage, number = ...;
+
+	while answer ~= number do
+
+		local answer = io.read("*n");
+
+		if answer < number then
+			print(lowMessage);
+		elseif answer > number then
+			print(highMessage);
+		else
+			break;
+		end
+
+		print "Guess again";
+	end
+
+end
+
 local number = getRandomNumber(100);
 print "Guess a number:";
 
-while answer ~= number do
-
-	local answer = io.read("*n");
-
-	if answer < number then
-		print("Too low");
-	elseif answer > number then
-		print("Too high");
-	else
-		break;
-	end
-
-	print "Guess again";
-end
+handleGuesses("Too low", "Too high", number);
 
 print("You got it!");
