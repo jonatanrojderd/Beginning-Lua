@@ -47,12 +47,7 @@ function HealthMonitor:didReachGoal()
 	return goalsReached >= 2;
 end
 
-hm = HealthMonitor:new { goal = 1500, stepGoal = 5000 };
-
-hm:add(900);
-hm:step(5001);
-print(hm:didReachGoal());
-
-
-hm:add(700);
-print(hm:didReachGoal());
+return {
+	CalorieCounter = CalorieCounter,
+	HealthMonitor = HealthMonitor
+};
