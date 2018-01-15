@@ -25,7 +25,7 @@ end
 HealthMonitor = CalorieCounter:new { steps = 0, stepGoal = 10000 };
 
 function HealthMonitor:step(amount)
-	self.step = self.steps + amount;
+	self.steps = self.steps + amount;
 end
 
 function HealthMonitor:didReachGoal()
@@ -47,3 +47,12 @@ function HealthMonitor:didReachGoal()
 	return goalsReached >= 2;
 end
 
+hm = HealthMonitor:new { goal = 1500, stepGoal = 5000 };
+
+hm:add(900);
+hm:step(5001);
+print(hm:didReachGoal());
+
+
+hm:add(700);
+print(hm:didReachGoal());
