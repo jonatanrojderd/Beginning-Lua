@@ -68,6 +68,12 @@ Senate leaders announced a deal to end the shutdown and avoid a possible default
 </div>
 </div>]]
 
-b, e = text:find("<.->");
+--[[b, e = text:find("<.->");
 print(b, e);
-print(string.sub(text, b, e));
+print(string.sub(text, b, e));]]--
+
+print(text:match("<.->"));
+
+for tag in string.gmatch(text, "<.->") do
+		print("Found:", tag);
+end
